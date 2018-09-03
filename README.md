@@ -1,2 +1,2 @@
-# install-pas
+# Install-PAS
 Install PAS on any IaaS
