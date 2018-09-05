@@ -1,0 +1,20 @@
+bosh -e bosh deploy -d concourse $VENDOR_PATH/concourse-bosh-deployment/cluster/concourse.yml \
+  -l $VENDOR_PATH/concourse-bosh-deployment/versions.yml \
+  -o $VENDOR_PATH/concourse-bosh-deployment/cluster/operations/static-web.yml \
+  -o $VENDOR_PATH/concourse-bosh-deployment/cluster/operations/basic-auth.yml \
+  -o ops-files/tls-vars.yml \
+  -o $VENDOR_PATH/concourse-bosh-deployment/cluster/operations/tls.yml \
+  -o $VENDOR_PATH/concourse-bosh-deployment/cluster/operations/privileged-https.yml \
+  -o $VENDOR_PATH/concourse-bosh-deployment/cluster/operations/scale.yml \
+  -v deployment_name=concourse \
+  -v web_ip=10.0.1.10 \
+  -v external_url=https://concourse-gcp.amlantech.in \
+  -v concourse_domain_name=concourse-gcp.amlantech.in \
+  -v concourse_alternative_names=[10.0.1.10,35.200.176.89] \
+  -v network_name=default \
+  -v web_vm_type=medium \
+  -v web_instances=1 \
+  -v db_vm_type=medium \
+  -v db_persistent_disk_type=50G \
+  -v worker_vm_type=large \
+  -v worker_instances=1
